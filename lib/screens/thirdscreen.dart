@@ -2,7 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class thirdscreen extends StatelessWidget {
-  const thirdscreen({super.key});
+  const thirdscreen(
+      {super.key,
+      required this.publishedAt,
+      required this.author,
+      required this.description,
+      required this.imagrUrl,
+      required this.content});
+
+  final String publishedAt;
+  final String author;
+  final String content;
+  final String description;
+  final String imagrUrl;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,8 +38,9 @@ class thirdscreen extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.topCenter,
-            child: Image.asset(
-              'images/Rectangle.png',
+            child: Image.network(
+              "$imagrUrl",
+              fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 0.5,
             ),
@@ -49,49 +63,18 @@ class thirdscreen extends StatelessWidget {
                       SizedBox(
                         height: 100,
                       ),
-                      Row(
-                        children: [
-                          Text(
-                            "LONDON",
-                            style: GoogleFonts.nunito(
-                                color: Color(0xff2E0505),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "— Cryptocurrencies“have no intrinsic",
-                            style: GoogleFonts.nunito(
-                              color: Color(0xff2E0505),
-                              fontSize: 16,
-                            ),
-                          )
-                        ],
-                      ),
                       Text(
-                        "value” and people who invest in them should be  prepared to lose all their money, Bank of England  Governor Andrew Bailey said. ",
+                        "$content",
                         style: GoogleFonts.nunito(
                           color: Color(0xff2E0505),
-                          fontSize: 15,
+                          fontSize: 16,
                         ),
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
                       Text(
-                        "Digital currencies like bitcoin, ether and even dogecoin  have been on a tear this year, reminding some  investors of the 2017 crypto bubble in which bitcoin /n blasted toward \$20,000, only to sink as low as \$3,122  a year later. ",
+                        "$description",
                         style: GoogleFonts.nunito(
                           color: Color(0xff2E0505),
-                          fontSize: 15,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        "Asked at a press conference Thursday about the   rising value of cryptocurrencies, Bailey said: “They  have no intrinsic value. That doesn’t mean to say  people don’t put value on them, because they can  have extrinsic value. But they have no intrinsic value.",
-                        style: GoogleFonts.nunito(
-                          color: Color(0xff2E0505),
-                          fontSize: 15,
+                          fontSize: 10,
                         ),
                       ),
                     ],
@@ -115,22 +98,14 @@ class thirdscreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 10),
-                      Text("Sunday, 9 May 2021",
+                      Text("Published by $author",
                           style: GoogleFonts.nunito(
                             color: Color(0xff2E0505),
                             fontWeight: FontWeight.bold,
                             fontSize: 12,
                           )),
                       SizedBox(height: 5),
-                      Text(
-                          "Crypto investors should be prepared to lose all their money, BOE governor says",
-                          style: GoogleFonts.nunito(
-                            color: Color(0xff2E0505),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          )),
-                      SizedBox(height: 5),
-                      Text("Published by Ryan Browne",
+                      Text("Published at $publishedAt",
                           style: GoogleFonts.nunito(
                             color: Color(0xff2E0505),
                             fontWeight: FontWeight.bold,
